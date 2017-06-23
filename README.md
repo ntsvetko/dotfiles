@@ -19,3 +19,6 @@ I'm including some config files as well as general lists of things that I use he
 
 ## Other Stuff
 * I'm using the "Afterglow" color scheme and I like it! (you can get it in iTerm2-Color-Schemes)
+* Remap Caps Lock to Control
+
+*WARNING* don't just copy the files! A lot of things in them are specific to the setup of this laptop. I'm just including them to remind myself some of the things that I do to customize my setup.
