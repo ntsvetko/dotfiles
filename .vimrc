@@ -2,6 +2,8 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+execute pathogen#infect()
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -39,7 +41,6 @@ set splitright
 
 filetype plugin indent on
 
-execute pathogen#infect()
 
 "let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 "let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
@@ -47,11 +48,9 @@ execute pathogen#infect()
 set tabstop=2
 set expandtab
 set shiftwidth=2
-
+set shortmess+=c
 let mapleader = ','
 let maplocalleader = "\\"
-
-inoremap <esc> <nop>
 
 " moves a line up
 nnoremap - ddp
@@ -71,9 +70,13 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 autocmd FileType java :iabbrev <buffer> syso System.out.println()<left>
 autocmd FileType go :iabbrev <buffer> syso fmt.Println()<left>
 
-
 " surround in quotes
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+
+onoremap in( :<c-u>normal! f(vi(<cr>
+onoremap il( :<c-u>normal! f)vi(<cr>
+" in o mode, remap fb to "function body"
+onoremap fb :<c-u>normal! f{vi{<cr>
 
 " this is how you do autocorrect -> iabbrev mep meep
 
