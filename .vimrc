@@ -9,6 +9,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'fatih/vim-go'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -40,15 +42,18 @@ set incsearch          " Incremental search
 set autowrite          " Automatically save before commands like :next and :make
 set mouse=a            " Turns mouse on
 set number             " Turns on numbers
-set relativenumber
+set relativenumber     " Turns on relative numbers
 set cindent
 set ruler
 set smartindent
 set splitbelow
 set splitright
 
+" plugin specific settings
 "let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 "let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
+let g:vim_markdown_folding_disabled = 1
 
 set tabstop=2
 set expandtab
