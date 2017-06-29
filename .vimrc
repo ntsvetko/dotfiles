@@ -59,6 +59,7 @@ set expandtab
 set shiftwidth=2
 set shortmess+=c
 set laststatus=2
+set noshowmode         " hides default information under statusline
 
 " PLUGIN SETTINGS
 
