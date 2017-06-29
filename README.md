@@ -15,6 +15,7 @@ I'm including some config files as well as general lists of things that I use he
 * vundle
 * homebrew (if it's a Mac)
 * iTerm2 (if it's a Mac)
+* if it's a mac, use MacVim (just alias vim to point to the one in MacVim because it's newer and shinier and YouCompleteMe wants it)
 * some kind of powerline font, which can be downloaded here: https://github.com/powerline/fonts
   * (Meslo Powerline, perhaps)
 
