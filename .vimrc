@@ -19,6 +19,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Bundle 'edkolev/tmuxline.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
