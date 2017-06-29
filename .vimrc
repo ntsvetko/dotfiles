@@ -1,7 +1,10 @@
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
+" Natalie's .vimrc :D
+
 set nocompatible
 filetype off
+set encoding=utf-8
+
+" VUNDLE STUFF
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -14,8 +17,12 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" VARIOUS SETTINGS (mostly stolen from Brown's default .vimrc)
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -32,12 +39,7 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
-" Have Vim load indentation rules according to the detected filetype.
-if has("autocmd")
-  filetype indent on
-endif
-
-set showcmd            " Show (partial) command in status line.
+"set showcmd            " Show (partial) command in status line.
 set showmatch          " Show matching brackets.
 set ignorecase         " Do case insensitive matching
 set smartcase          " Do smart case matching
@@ -45,9 +47,8 @@ set incsearch          " Incremental search
 set autowrite          " Automatically save before commands like :next and :make
 set mouse=a            " Turns mouse on
 set number             " Turns on numbers
-set relativenumber     " Turns on relative numbers
 set cindent
-set ruler
+"set ruler
 set smartindent
 set splitbelow
 set splitright
@@ -56,12 +57,18 @@ set tabstop=2
 set expandtab
 set shiftwidth=2
 set shortmess+=c
+set laststatus=2
 
-" plugin specific settings
+" PLUGIN SETTINGS
+
 "let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 "let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 let g:vim_markdown_folding_disabled = 1
+let g:tex_flavor='latex'
+let g:airline_theme='alduin'
+
+" PERSONAL MAPPING STUFF
 
 let mapleader = ','
 let maplocalleader = "\\"
@@ -80,10 +87,6 @@ inoremap jk <Esc>
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" makes j and k work more sanely
-nnoremap j gj
-nnoremap k gk
-
 " make printing better
 autocmd FileType java :iabbrev <buffer> syso System.out.println()<left>
 autocmd FileType go :iabbrev <buffer> syso fmt.Println()<left>
@@ -96,6 +99,3 @@ onoremap il( :<c-u>normal! f)vi(<cr>
 " in o mode, remap fb to "function body"
 onoremap fb :<c-u>normal! f{vi{<cr>
 
-" this is how you do autocorrect -> iabbrev mep meep
-
-let g:tex_flavor='latex'
