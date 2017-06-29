@@ -24,3 +24,6 @@ I'm including some config files as well as general lists of things that I use he
 * Airline themes I like: alduin, raven, bubblegum, sierra, understated
 
 *WARNING* don't just copy the files! A lot of things in them are specific to the setup of this laptop. I'm just including them to remind myself some of the things that I do to customize my setup.
+
+## LOOK AT THIS BEAUTY
+![alt text](https://user-images.githubusercontent.com/12420326/27706897-569c093c-5ce1-11e7-890e-5368744e180d.png)
