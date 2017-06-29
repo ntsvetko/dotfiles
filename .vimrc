@@ -69,7 +69,8 @@ set clipboard=unnamed
 
 let g:vim_markdown_folding_disabled = 1
 let g:tex_flavor='latex'
-let g:airline_theme='alduin'
+let g:airline_theme='bubblegum'
+let g:airline_powerline_fonts=1
 
 " PERSONAL MAPPING STUFF
 
