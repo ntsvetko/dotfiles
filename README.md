@@ -15,7 +15,8 @@ I'm including some config files as well as general lists of things that I use he
 * vundle
 * homebrew (if it's a Mac)
 * iTerm2 (if it's a Mac)
-* some kind of powerline font (Meslo Powerline, perhaps)
+* some kind of powerline font, which can be downloaded here: https://github.com/powerline/fonts
+  * (Meslo Powerline, perhaps)
 
 ## Other Stuff
 * I'm using the "Afterglow" color scheme and I like it! (you can get it in iTerm2-Color-Schemes)
