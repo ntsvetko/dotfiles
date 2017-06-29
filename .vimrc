@@ -75,9 +75,9 @@ let g:airline_powerline_fonts=1
 let mapleader = ','
 let maplocalleader = "\\"
 
-" moves a line up
+" maps - to move a line up
 nnoremap - ddp
-" moves a line down
+" maps _ to move a line down
 nnoremap _ dd2kp
 " selects a word in visual mode with a space in normal mode
 nnoremap <leader><space> viw
