@@ -11,6 +11,9 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -19,8 +22,8 @@ set backspace=indent,eol,start
 
 " syntax highlighting
 syntax enable
+
 " If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
 set background=dark
 
 " Have Vim jump to the last position when reopening a file
@@ -48,6 +51,11 @@ set ruler
 set smartindent
 set splitbelow
 set splitright
+set ignorecase         " ignores case while searching
+set tabstop=2
+set expandtab
+set shiftwidth=2
+set shortmess+=c
 
 " plugin specific settings
 "let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
@@ -55,10 +63,6 @@ set splitright
 
 let g:vim_markdown_folding_disabled = 1
 
-set tabstop=2
-set expandtab
-set shiftwidth=2
-set shortmess+=c
 let mapleader = ','
 let maplocalleader = "\\"
 
@@ -75,6 +79,10 @@ inoremap jk <Esc>
 " makes it easier to edit your vimrc
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" makes j and k work more sanely
+nnoremap j gj
+nnoremap k gk
 
 " make printing better
 autocmd FileType java :iabbrev <buffer> syso System.out.println()<left>

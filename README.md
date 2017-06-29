@@ -10,10 +10,7 @@ I'm including some config files as well as general lists of things that I use he
 ## Things To Download
 * oh-my-zsh (also I edited the alanpeabody prompt to include an emoji by changing the PROMPT line to PROMPT="${user} ${pwd} $emoji[spiral_shell]")
 * tmux
-* pathogen
-  * youcompleteme (this also requires specific versions of vim so pay attention to the instructions)
-  * vim-go
-  * syntastic
+* vundle
 * homebrew (if it's a Mac)
 * iTerm2 (if it's a Mac)
 
