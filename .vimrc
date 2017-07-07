@@ -93,6 +93,8 @@ nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 " can add a new line below without going into insert mode
 nnoremap <leader>nl o<Esc>
+" paste from clipboard
+nnoremap <leader>pp :set paste<Cr>o<esc>"*]p:set nopaste<cr>
 
 " make printing more pleasant in go and java
 autocmd FileType java :iabbrev <buffer> syso System.out.println()<left>
