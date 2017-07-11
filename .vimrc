@@ -93,6 +93,8 @@ nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 " can add a new line below without going into insert mode
 nnoremap <leader>nl o<Esc>
+" uncomments a line starting with // (kind of a shitty hardcoded shortcut)
+nnoremap <leader>uc ^d3l 
 " paste from clipboard
 nnoremap <leader>pp :set paste<Cr>o<esc>"*]p:set nopaste<cr>
 
