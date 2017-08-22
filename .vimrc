@@ -69,6 +69,8 @@ let g:vim_markdown_folding_disabled = 1
 let g:tex_flavor='latex'
 let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts=1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+"let g:ycm_autoclose_preview_window_after_completion = 1
 
 " PERSONAL MAPPING STUFF
 
@@ -89,6 +91,12 @@ inoremap jk <Esc>
 " vim window, and then do ,sv to source it!)
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+" can add a new line below without going into insert mode
+nnoremap <leader>nl o<Esc>
+" uncomments a line starting with // (kind of a shitty hardcoded shortcut)
+nnoremap <leader>uc ^d3l 
+" paste from clipboard
+nnoremap <leader>pp :set paste<Cr>o<esc>"*]p:set nopaste<cr>
 
 " make printing more pleasant in go and java
 autocmd FileType java :iabbrev <buffer> syso System.out.println()<left>
