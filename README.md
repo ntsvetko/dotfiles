@@ -1,4 +1,4 @@
-# My Setup
+# My Setup 🌟
 
 I'm including some config files as well as general lists of things that I use here.
 
@@ -11,13 +11,15 @@ I'm including some config files as well as general lists of things that I use he
 ## Things To Download
 * oh-my-zsh (also I edited the alanpeabody prompt to include an emoji by changing the PROMPT line to PROMPT="${user} ${pwd} $emoji[spiral_shell]")
 * tmux (2.1 or above)
+  * if it's a department machine, cry.
 * reattach-to-user-namespace (fixes some issues between tmux and Mac, ex. copy/paste)
 * vundle
 * homebrew (if it's a Mac)
 * iTerm2 (if it's a Mac)
-* if it's a mac, use MacVim (just alias vim to point to the one in MacVim because it's newer and shinier and YouCompleteMe wants it)
-* if it's not a mac, use the shiniest vim you can get or else YouCompleteMe will complain
-  * if it's a department machine, cry.
+* vim!
+  * if it's a mac, use MacVim (just alias vim to point to the one in MacVim because it's newer and shinier and YouCompleteMe wants it)
+  * if it's not a mac, use the shiniest vim you can get or else YouCompleteMe will complain
+    * if it's a department machine, cry.
 * some kind of powerline font, which can be downloaded here: https://github.com/powerline/fonts
   * (Meslo Powerline, perhaps)
 
