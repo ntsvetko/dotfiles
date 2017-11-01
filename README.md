@@ -16,6 +16,7 @@ I'm including some config files as well as general lists of things that I use he
 * vundle
 * homebrew (if it's a Mac)
 * iTerm2 (if it's a Mac)
+* coreutils on mac for the ls colors!
 * vim!
   * if it's a mac, use MacVim (just alias vim to point to the one in MacVim because it's newer and shinier and YouCompleteMe wants it)
   * if it's not a mac, use the shiniest vim you can get or else YouCompleteMe will complain

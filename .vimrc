@@ -71,6 +71,9 @@ let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts=1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 "let g:ycm_autoclose_preview_window_after_completion = 1
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "passive_filetypes": ["tex"] }
 
 " PERSONAL MAPPING STUFF
 
@@ -97,6 +100,12 @@ nnoremap <leader>nl o<Esc>
 nnoremap <leader>uc ^d3l 
 " paste from clipboard
 nnoremap <leader>pp :set paste<Cr>o<esc>"*]p:set nopaste<cr>
+" saves
+nnoremap <leader>ss <Esc>:w<cr>
+" yanks whole file
+nnoremap <leader>ca ggYG
+" adds a semicolon to the end of the line
+nnoremap <leader>sc A;<Esc>
 
 " make printing more pleasant in go and java
 autocmd FileType java :iabbrev <buffer> syso System.out.println()<left>

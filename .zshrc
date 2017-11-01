@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/natalie/.oh-my-zsh
@@ -7,10 +7,13 @@ export ZSH=/Users/natalie/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="alanpeabody"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+DEFAULT_USER="natalie"
+prompt_context(){} 
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -23,7 +26,7 @@ HYPHEN_INSENSITIVE="true"
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+# DISABLE_LS_COLORS="false"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -83,11 +86,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ctags="/usr/local/Cellar/ctags/5.8_1/bin/ctags"
 alias sl="sl -alF"
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-
-export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
-export GOROOT=/usr/local/go
-export GOPATH=/Users/natalie/go
-export PATH=$GOPATH/bin:$JAVA_HOME/bin:$PATH
+alias browncs="ssh -Y ntsvetko@ssh.cs.brown.edu"
+alias ls=" ls --color=tty"
+alias cd=" cd"
+alias clear=" clear"
