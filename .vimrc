@@ -10,7 +10,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim' " lets vundle update vundle!
 Plugin 'fatih/vim-go' " plugin for golang
-Plugin 'vim-syntastic/syntastic' " syntax checking!
+Plugin 'w0rp/ale' " syntax checking
 Plugin 'Valloric/YouCompleteMe' " <3 autocomplete
 Plugin 'godlygeek/tabular' " needed for vim-markdown
 Plugin 'plasticboy/vim-markdown' " makes editing markdown nicer?
