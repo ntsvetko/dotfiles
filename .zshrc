@@ -88,6 +88,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias sl="sl -alF"
 alias browncs="ssh -Y ntsvetko@ssh.cs.brown.edu"
-alias ls=" ls --color=tty"
-alias cd=" cd"
-alias clear=" clear"
+alias cd=" cd" # the space makes it not go into your zsh history
