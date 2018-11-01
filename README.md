@@ -23,6 +23,7 @@ I'm including some config files as well as general lists of things that I use he
     * if it's a department machine, cry.
 * some kind of powerline font, which can be downloaded here: https://github.com/powerline/fonts
   * (Meslo Powerline, perhaps)
+* fzf (https://github.com/junegunn/fzf), a fuzzy finder that makes it easier to search for files and through history
 
 ## Other Stuff
 * I'm using the "Afterglow" color scheme and I like it! (you can get it in iTerm2-Color-Schemes at https://github.com/mbadolato/iTerm2-Color-Schemes and there are many great ones and it includes a mode to toggle them all in order to find the one you like)
