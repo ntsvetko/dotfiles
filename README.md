@@ -34,6 +34,5 @@ I'm including some config files as well as general lists of things that I use he
 
 *WARNING* don't just copy the files! A lot of things in them are specific to the setup of this laptop. I'm just including them to remind myself some of the things that I do to customize my setup.
 
-## LOOK AT THIS BEAUTY
-* it's actually from last year but oh well
+## Example Image
 ![alt text](https://user-images.githubusercontent.com/12420326/48224192-09c76800-e367-11e8-9f13-8684e9a63f9d.png)
