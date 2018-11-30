@@ -4,7 +4,7 @@ set nocompatible  " this tells the thing I'm using vim and not vi
 filetype off " something I need to do for vundle
 set encoding=utf-8 " just in case some plugin didn't get the memo
 
-" VUNDLE STUFF
+" *** VUNDLE STUFF ***
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -23,16 +23,16 @@ Plugin 'vim-airline/vim-airline-themes' " themes to make status line pretty
 Plugin 'scrooloose/nerdtree' " displays a tree of the folders
 Plugin 'airblade/vim-gitgutter' " shows +/-/~ according to git
 Plugin 'edkolev/tmuxline.vim' " uses vim-airline theme to make tmux match
-Plugin 'rhysd/vim-clang-format' " clang formatter
-" inactive plugins as of sharding rotation:
-" Plugin 'w0rp/ale' " syntax checking
-" Plugin 'fatih/vim-go' " plugin for golang
+Plugin 'w0rp/ale' " syntax checking
+Plugin 'fatih/vim-go' " plugin for golang
+Plugin 'mxw/vim-jsx' " for react
 " Plugin 'Valloric/MatchTagAlways' " HTML tags
-" Plugin 'mxw/vim-jsx' " more javascript
+" Plugin 'rhysd/vim-clang-format' " clang formatter
 call vundle#end()            " required for vundle
 filetype plugin indent on    " required for vundle
 
-" VARIOUS SETTINGS (mostly stolen from Brown's default .vimrc)
+" *** VARIOUS SETTINGS ***
+" (mostly stolen from Brown's default .vimrc)
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -69,30 +69,30 @@ set laststatus=2       " makes status line always visible -- good for vim-airlin
 set noshowmode         " hides default information under statusline
 set clipboard=unnamed  " allows vim to access the system clipboard
 
-" PLUGIN SETTINGS
+" *** PLUGIN SETTINGS ***
+" vim-markdown
 let g:vim_markdown_folding_disabled = 1
 
-" let g:tex_flavor='latex'
-
+" vim-airline
 let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
 
+" YouCompleteMe
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
+" ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-let g:airline#extensions#tabline#enabled = 1
+" vim-javascript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
 
-let g:clang_format#command = '/home/natalie/mongo/build/clang-format-3.8.0'
-let g:clang_format#detect_style_file = 1
-let g:clang_format#auto_format = 1
+"vim-jsx
+let g:jsx_ext_required = 0
 
-let g:ycm_collect_identifiers_from_tags_files = 1
-" inactive as of sharding rotation
-" let g:javascript_plugin_jsdoc = 1
-" let g:javascript_plugin_flow = 1
-" let g:jsx_ext_required = 0
+" MatchTagAlways
 " let g:mta_filetypes = {
 "       \ 'javascript.jsx': 1,
 "       \ 'html' : 1,
@@ -101,7 +101,7 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 "       \ 'jinja' : 1 }
 " let g:ale_fix_on_save = 1
 
-" PERSONAL MAPPING STUFF
+" *** PERSONAL MAPPINGS ***
 
 let mapleader = ','
 let maplocalleader = "\\"
@@ -130,27 +130,3 @@ nnoremap <leader>pp :set paste<Cr>o<esc>"*]p:set nopaste<cr>
 nnoremap <leader>ss <Esc>:w<cr>
 " yanks whole file
 nnoremap <leader>ca ggYG
-" adds a semicolon to the end of the line
-nnoremap <leader>sc A;<Esc>
-" switches to next buffer
-nnoremap <leader>n :bn<cr>
-" switches to previous buffer
-nnoremap <leader>p :bp<cr>
-" *** ATLAS STUFF ***
-" javascript code fuzzy search
-" nnoremap <leader>jc :CtrlP /mms/client/js<cr>
-" javascript tests fuzzy search
-" nnoremap <leader>jt :CtrlP /mms/client/test<cr>
-" css fuzzy search
-" nnoremap <leader>css :CtrlP /mms/client/less<cr>
-" server fuzzy search
-" *** SHARDING STUFF ***
-nnoremap <c-p> :CtrlP ~/mongo
-
-" allows you to go to the next thing within ()
-onoremap in( :<c-u>normal! f(vi(<cr>
-" allows you to go to the previous thing within ()
-onoremap il( :<c-u>normal! f)vi(<cr>
-" in o mode, remap fb to "function body" -- selects function body (so you can
-" yank or delete or change it, etc)
-onoremap fb :<c-u>normal! f{vi{<cr>
