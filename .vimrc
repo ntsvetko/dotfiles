@@ -7,11 +7,12 @@ set encoding=utf-8 " just in case some plugin didn't get the memo
 " *** VUNDLE STUFF ***
 
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=/usr/local/opt/fzf
+
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim' " lets vundle update vundle!
 Plugin 'Valloric/YouCompleteMe' " <3 autocomplete
 Plugin 'Yggdroot/indentLine' " makes indentations more visible with lines
-Plugin 'ctrlpvim/ctrlp.vim' " fuzzy search and stuff
 Plugin 'godlygeek/tabular' " needed for vim-markdown
 Plugin 'plasticboy/vim-markdown' " makes editing markdown nicer?
 Plugin 'pangloss/vim-javascript' " for javascript
@@ -26,6 +27,7 @@ Plugin 'edkolev/tmuxline.vim' " uses vim-airline theme to make tmux match
 Plugin 'w0rp/ale' " syntax checking
 Plugin 'fatih/vim-go' " plugin for golang
 Plugin 'mxw/vim-jsx' " for react
+Plugin 'junegunn/fzf.vim' " fuzzy finder
 " Plugin 'Valloric/MatchTagAlways' " HTML tags
 " Plugin 'rhysd/vim-clang-format' " clang formatter
 call vundle#end()            " required for vundle
@@ -81,9 +83,12 @@ let g:airline#extensions#tabline#enabled = 1
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
-" ctrlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+" fzf
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+	\| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+nnoremap <c-n> :Files<cr>
+nnoremap <c-p> :History<cr>
 
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
@@ -91,15 +96,6 @@ let g:javascript_plugin_flow = 1
 
 "vim-jsx
 let g:jsx_ext_required = 0
-
-" MatchTagAlways
-" let g:mta_filetypes = {
-"       \ 'javascript.jsx': 1,
-"       \ 'html' : 1,
-"       \ 'xhtml' : 1,
-"       \ 'xml' : 1,
-"       \ 'jinja' : 1 }
-" let g:ale_fix_on_save = 1
 
 " *** PERSONAL MAPPINGS ***
 
@@ -130,3 +126,12 @@ nnoremap <leader>pp :set paste<Cr>o<esc>"*]p:set nopaste<cr>
 nnoremap <leader>ss <Esc>:w<cr>
 " yanks whole file
 nnoremap <leader>ca ggYG
+
+" *** PERSONAL PLUGIN MAPPINGS: ***
+
+" shows GoDoc documentation
+au FileType go nmap <leader>d <Plug>(go-doc)
+" shows callers of Go function
+au FileType go nmap <leader>gc <Plug>(go-callers)
+" lists declarations (requires fzf or ctrlp)
+au FileType go nmap <leader>f :GoDecls<cr>
