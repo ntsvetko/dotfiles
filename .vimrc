@@ -70,13 +70,15 @@ set ignorecase         " ignores case while searching
 set laststatus=2       " makes status line always visible -- good for vim-airline
 set noshowmode         " hides default information under statusline
 set clipboard=unnamed  " allows vim to access the system clipboard
+set fillchars+=vert:*  " make the middle line prettier in a vsplit
 
 " *** PLUGIN SETTINGS ***
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
 
 " vim-airline
-let g:airline_theme='bubblegum'
+"let g:airline_theme='bubblegum'
+let g:airline_theme='silver'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 
@@ -87,7 +89,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
 	\| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-nnoremap <c-n> :Files<cr>
+nnoremap <c-n> :GFiles<cr>
 nnoremap <c-p> :History<cr>
 
 " vim-javascript
@@ -130,8 +132,13 @@ nnoremap <leader>ca ggYG
 " *** PERSONAL PLUGIN MAPPINGS: ***
 
 " shows GoDoc documentation
-au FileType go nmap <leader>d <Plug>(go-doc)
+au FileType go nmap <leader>gd <Plug>(go-doc)
 " shows callers of Go function
 au FileType go nmap <leader>gc <Plug>(go-callers)
 " lists declarations (requires fzf or ctrlp)
-au FileType go nmap <leader>f :GoDecls<cr>
+au FileType go nmap <leader>go :GoDecls<cr>
+" lists declarations in directory (requires fzf or ctrlp)
+au FileType go nmap <leader>gf :GoDeclsDir<cr>
+
+" fxzf
+nnoremap <leader>b :Buffers<cr>

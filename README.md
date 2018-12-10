@@ -14,7 +14,7 @@ I'm including some config files as well as general lists of things that I use he
 * [homebrew](https://brew.sh/) (package manager)
   * reattach-to-user-namespace (fixes some issues between tmux and Mac, ex. copy/paste)
   * coreutils (ls colors & other things)
-* [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) (color schemes for iTerm2, I personally like Afterglow)
+* [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) (color schemes for iTerm2, currently using Tomorrow Night Eighties)
 ### All OS:
 * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) (shell)
   * this will generate a new .zshrc so I like to just edit the new .zshrc to have the correct theme (agnoster) and plugins.
@@ -30,4 +30,4 @@ I'm including some config files as well as general lists of things that I use he
 * Make sure that iTerm2 allows applications to access the clipboard
 
 ## Example Image
-![alt text](https://user-images.githubusercontent.com/12420326/48224192-09c76800-e367-11e8-9f13-8684e9a63f9d.png)
+![alt text](https://user-images.githubusercontent.com/12420326/49762791-cbd89f00-fc98-11e8-964d-760ced039cb3.png)
