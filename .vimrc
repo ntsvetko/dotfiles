@@ -28,6 +28,8 @@ Plugin 'w0rp/ale' " syntax checking
 Plugin 'fatih/vim-go' " plugin for golang
 Plugin 'mxw/vim-jsx' " for react
 Plugin 'junegunn/fzf.vim' " fuzzy finder
+Plugin 'prettier/vim-prettier' " autoformatting for javascript
+Plugin 'terryma/vim-multiple-cursors' " multiple cursors
 " Plugin 'Valloric/MatchTagAlways' " HTML tags
 " Plugin 'rhysd/vim-clang-format' " clang formatter
 call vundle#end()            " required for vundle
@@ -77,7 +79,6 @@ set fillchars+=vert:*  " make the middle line prettier in a vsplit
 let g:vim_markdown_folding_disabled = 1
 
 " vim-airline
-"let g:airline_theme='bubblegum'
 let g:airline_theme='silver'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
@@ -89,8 +90,6 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
 	\| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-nnoremap <c-n> :GFiles<cr>
-nnoremap <c-p> :History<cr>
 
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
@@ -119,18 +118,23 @@ inoremap jk <Esc>
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 " can add a new line below without going into insert mode
-nnoremap <leader>nl o<Esc>
+" nnoremap <leader>nl o<Esc>
 " uncomments a line starting with // (kind of a shitty hardcoded shortcut)
 nnoremap <leader>uc ^d3l 
 " paste from clipboard
-nnoremap <leader>pp :set paste<Cr>o<esc>"*]p:set nopaste<cr>
+nnoremap <leader>v :set paste<Cr>o<esc>"*]p:set nopaste<cr>
 " saves
 nnoremap <leader>ss <Esc>:w<cr>
 " yanks whole file
 nnoremap <leader>ca ggYG
+" moves to next buffer
+nnoremap <leader>n :bnext<cr>
+" moves to previous buffer
+nnoremap <leader>p :bprev<cr>
 
 " *** PERSONAL PLUGIN MAPPINGS: ***
 
+" --- vim-go ---
 " shows GoDoc documentation
 au FileType go nmap <leader>gd <Plug>(go-doc)
 " shows callers of Go function
@@ -140,5 +144,11 @@ au FileType go nmap <leader>go :GoDecls<cr>
 " lists declarations in directory (requires fzf or ctrlp)
 au FileType go nmap <leader>gf :GoDeclsDir<cr>
 
-" fxzf
+
+" fzf
 nnoremap <leader>b :Buffers<cr>
+nnoremap <c-o> :GFiles<cr>
+nnoremap <c-p> :History<cr>
+nnoremap <c-f> :Ag
+" searches using ag for what is under the cursor (requires ag, fzf)
+nnoremap <leader>f viwy:Ag <c-r>"<cr>

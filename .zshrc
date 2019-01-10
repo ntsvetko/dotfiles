@@ -8,8 +8,9 @@ export ZSH="/Users/natalie/.oh-my-zsh"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="amuse"
-ZSH_THEME="theunraveler"
+# ZSH_THEME="theunraveler"
 #ZSH_THEME="agnoster"
+ZSH_THEME="meep"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -110,5 +111,6 @@ export GOROOT="/usr/local/go"
 export GOPATH="$HOME/go"
 export PATH=$GOPATH/bin:$JAVA_HOME/bin:$HOME/bin:$PATH
 
+source $HOME/build/z/z.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

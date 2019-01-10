@@ -24,6 +24,7 @@ I'm including some config files as well as general lists of things that I use he
 * [powerline fonts](https://github.com/powerline/fonts) (for various prompts/statuslines – Meslo Powerline is nice)
 * [fzf](https://github.com/junegunn/fzf) (a fuzzy finder that makes it easier to search for files and through history)
 * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+* [z](https://github.com/rupa/z)
 
 ## Other Setting Stuff
 * Remap Caps Lock to Control
