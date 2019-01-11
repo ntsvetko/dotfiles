@@ -149,6 +149,6 @@ au FileType go nmap <leader>gf :GoDeclsDir<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <c-o> :GFiles<cr>
 nnoremap <c-p> :History<cr>
-nnoremap <c-f> :Ag
+nnoremap <c-f> :Ag 
 " searches using ag for what is under the cursor (requires ag, fzf)
 nnoremap <leader>f viwy:Ag <c-r>"<cr>
