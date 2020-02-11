@@ -65,7 +65,7 @@ ZSH_THEME="meep"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git web-search vi-mode emoji history-substring-search go osx
+  git web-search vi-mode emoji history-substring-search go osx tmuxinator
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -101,6 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # alias client=" cd /mms/client"
 # alias server=" cd /mms/server"
 alias ls=" ls"
+alias mux="tmuxinator"
 source $HOME/.aliases
 
 export CLICOLOR=1
@@ -110,7 +111,12 @@ export ANT_OPTS="-Xms64m -Xmx1500m"
 export GOROOT="/usr/local/go"
 export GOPATH="$HOME/go"
 export PATH=$GOPATH/bin:$JAVA_HOME/bin:$HOME/bin:$PATH
+export EDITOR='vim'
+export SHELL='zsh'
 
 source $HOME/build/z/z.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -s "/Users/natalie/.jabba/jabba.sh" ] && source "/Users/natalie/.jabba/jabba.sh"
+export PATH="/usr/local/opt/ruby/bin:$PATH"

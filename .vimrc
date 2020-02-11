@@ -29,9 +29,9 @@ Plugin 'fatih/vim-go' " plugin for golang
 Plugin 'mxw/vim-jsx' " for react
 Plugin 'junegunn/fzf.vim' " fuzzy finder
 Plugin 'prettier/vim-prettier' " autoformatting for javascript
-Plugin 'terryma/vim-multiple-cursors' " multiple cursors
-" Plugin 'Valloric/MatchTagAlways' " HTML tags
-" Plugin 'rhysd/vim-clang-format' " clang formatter
+Plugin 'leafgarland/typescript-vim' "typescript
+Plugin 'ianks/vim-tsx' "tsx
+" Plugin 'Valloric/MatchTagAlways' " HTML tags (makes slow but useful)
 call vundle#end()            " required for vundle
 filetype plugin indent on    " required for vundle
 
@@ -73,6 +73,10 @@ set laststatus=2       " makes status line always visible -- good for vim-airlin
 set noshowmode         " hides default information under statusline
 set clipboard=unnamed  " allows vim to access the system clipboard
 set fillchars+=vert:*  " make the middle line prettier in a vsplit
+
+" cursorline (color chosen specifically to match my iterm theme so ymmv)
+set cursorline
+hi CursorLine   cterm=NONE ctermbg=238 ctermfg=NONE
 
 " *** PLUGIN SETTINGS ***
 " vim-markdown
@@ -131,6 +135,13 @@ nnoremap <leader>ca ggYG
 nnoremap <leader>n :bnext<cr>
 " moves to previous buffer
 nnoremap <leader>p :bprev<cr>
+" exits current buffer
+nnoremap <c-x> :bd<cr>
+" starts out a search and replace with the word under the cursor
+nnoremap <leader>r viwy:%s/<c-r>"/
+" starts out a search and replace with the word under the cursor in all
+" buffers
+nnoremap <leader>ra viwy:bufdo %s/<c-r>"/
 
 " *** PERSONAL PLUGIN MAPPINGS: ***
 
@@ -147,7 +158,8 @@ au FileType go nmap <leader>gf :GoDeclsDir<cr>
 
 " fzf
 nnoremap <leader>b :Buffers<cr>
-nnoremap <c-o> :GFiles<cr>
+nnoremap <c-n> :GFiles<cr>
+nnoremap <leader>ed :GFiles?<cr>
 nnoremap <c-p> :History<cr>
 nnoremap <c-f> :Ag 
 " searches using ag for what is under the cursor (requires ag, fzf)
