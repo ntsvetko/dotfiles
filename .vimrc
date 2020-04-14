@@ -3,38 +3,32 @@
 set nocompatible  " this tells the thing I'm using vim and not vi
 filetype off " something I need to do for vundle
 set encoding=utf-8 " just in case some plugin didn't get the memo
-
-" *** VUNDLE STUFF ***
-
-set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
 
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim' " lets vundle update vundle!
-" Plugin 'Valloric/YouCompleteMe' " <3 autocomplete
-Plugin 'neoclide/coc.nvim' " trying this out for autocomplete
-Plugin 'Yggdroot/indentLine' " makes indentations more visible with lines
-Plugin 'godlygeek/tabular' " needed for vim-markdown
-Plugin 'plasticboy/vim-markdown' " makes editing markdown nicer?
-Plugin 'pangloss/vim-javascript' " for javascript
-Plugin 'tpope/vim-fugitive' " git support for vim
-Plugin 'tpope/vim-surround' " allows you to easily edit surroundings
-Plugin 'tpope/vim-repeat' " lets you repeat with . stuff that a plugin does
-Plugin 'vim-airline/vim-airline' " status line
-Plugin 'vim-airline/vim-airline-themes' " themes to make status line pretty
-Plugin 'scrooloose/nerdtree' " displays a tree of the folders
-Plugin 'airblade/vim-gitgutter' " shows +/-/~ according to git
-Plugin 'edkolev/tmuxline.vim' " uses vim-airline theme to make tmux match
-Plugin 'w0rp/ale' " syntax checking
-Plugin 'fatih/vim-go' " plugin for golang
-Plugin 'mxw/vim-jsx' " for react
-Plugin 'junegunn/fzf.vim' " fuzzy finder
-Plugin 'prettier/vim-prettier' " autoformatting for javascript
-Plugin 'leafgarland/typescript-vim' "typescript
-Plugin 'ianks/vim-tsx' "tsx
-" Plugin 'Valloric/MatchTagAlways' " HTML tags (makes slow but useful)
-call vundle#end()            " required for vundle
-filetype plugin indent on    " required for vundle
+" *** VIM-PLUG STUFF ***
+call plug#begin('~/.vim/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " trying this out for autocomplete
+Plug 'Yggdroot/indentLine' " makes indentations more visible with lines
+Plug 'godlygeek/tabular' " needed for vim-markdown
+Plug 'plasticboy/vim-markdown' " makes editing markdown nicer?
+Plug 'pangloss/vim-javascript' " for javascript
+Plug 'tpope/vim-fugitive' " git support for vim
+Plug 'tpope/vim-surround' " allows you to easily edit surroundings
+Plug 'tpope/vim-repeat' " lets you repeat with . stuff that a plugin does
+Plug 'vim-airline/vim-airline' " status line
+Plug 'vim-airline/vim-airline-themes' " themes to make status line pretty
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}" displays a tree of the folders
+Plug 'airblade/vim-gitgutter' " shows +/-/~ according to git
+Plug 'edkolev/tmuxline.vim' " uses vim-airline theme to make tmux match
+Plug 'fatih/vim-go' " plugin for golang
+Plug 'mxw/vim-jsx' " for react
+Plug 'junegunn/fzf.vim' " fuzzy finder
+Plug 'prettier/vim-prettier' " autoformatting for javascript
+Plug 'leafgarland/typescript-vim' "typescript
+Plug 'ianks/vim-tsx' "tsx
+call plug#end()
+
+filetype plugin indent on
 
 " *** VARIOUS SETTINGS ***
 " (mostly stolen from Brown's default .vimrc)
@@ -91,8 +85,75 @@ let g:airline_theme='silver'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 
-" YouCompleteMe
-let g:ycm_autoclose_preview_window_after_insertion = 1
+" coc.nvim
+set hidden
+set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=300
+set signcolumn=yes
+
+"" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+"" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+"" position. Coc only does snippet and additional edit on confirm.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+"" close preview window
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+"" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+"" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
 
 " fzf
 autocmd! FileType fzf

@@ -19,12 +19,13 @@ I'm including some config files as well as general lists of things that I use he
 * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) (shell)
   * this will generate a new .zshrc so I like to just edit the new .zshrc to have the correct theme (agnoster) and plugins.
 * tmux (2.1 or above)
-* [vundle](https://github.com/VundleVim/Vundle.vim) (package manager for vim)
-* vim (the newest one possible, for YouCompleteMe to work)
+* [vim-plug](https://github.com/junegunn/vim-plug) (plugin manager for vim)
+* vim (at least 8)
 * [powerline fonts](https://github.com/powerline/fonts) (for various prompts/statuslines – Meslo Powerline is nice)
 * [fzf](https://github.com/junegunn/fzf) (a fuzzy finder that makes it easier to search for files and through history)
 * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 * [z](https://github.com/rupa/z) (keeps a cd history and makes it easier to jump to stuff)
+* set up any relevant language servers for coc.nvim
 
 ## Other Setting Stuff
 * Remap Caps Lock to Control
