@@ -11,7 +11,8 @@ set rtp+=/usr/local/opt/fzf
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim' " lets vundle update vundle!
-Plugin 'Valloric/YouCompleteMe' " <3 autocomplete
+" Plugin 'Valloric/YouCompleteMe' " <3 autocomplete
+Plugin 'neoclide/coc.nvim' " trying this out for autocomplete
 Plugin 'Yggdroot/indentLine' " makes indentations more visible with lines
 Plugin 'godlygeek/tabular' " needed for vim-markdown
 Plugin 'plasticboy/vim-markdown' " makes editing markdown nicer?
@@ -74,9 +75,12 @@ set noshowmode         " hides default information under statusline
 set clipboard=unnamed  " allows vim to access the system clipboard
 set fillchars+=vert:*  " make the middle line prettier in a vsplit
 
-" cursorline (color chosen specifically to match my iterm theme so ymmv)
+" italic comments
+highlight Comment cterm=italic ctermfg=189
+
+" highlight cursorline (color chosen specifically to match my iterm theme so ymmv)
 set cursorline
-hi CursorLine   cterm=NONE ctermbg=238 ctermfg=NONE
+hi CursorLine cterm=NONE ctermbg=240 ctermfg=NONE
 
 " *** PLUGIN SETTINGS ***
 " vim-markdown
@@ -101,6 +105,9 @@ let g:javascript_plugin_flow = 1
 
 "vim-jsx
 let g:jsx_ext_required = 0
+
+"indentLine
+let g:indentLine_char = '┊'
 
 " *** PERSONAL MAPPINGS ***
 
@@ -154,7 +161,6 @@ au FileType go nmap <leader>gc <Plug>(go-callers)
 au FileType go nmap <leader>go :GoDecls<cr>
 " lists declarations in directory (requires fzf or ctrlp)
 au FileType go nmap <leader>gf :GoDeclsDir<cr>
-
 
 " fzf
 nnoremap <leader>b :Buffers<cr>

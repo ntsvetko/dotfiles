@@ -103,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 alias ls=" ls"
 alias mux="tmuxinator"
 source $HOME/.aliases
+alias bazel=/mms/bazelisk
 
 export CLICOLOR=1
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home"
