@@ -104,16 +104,19 @@ alias ls=" ls"
 alias mux="tmuxinator"
 source $HOME/.aliases
 alias bazel=/mms/bazelisk
+alias vim="nvim"
 
 export CLICOLOR=1
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home"
-export ANT_HOME="/usr/local/Cellar/ant/1.10.5/libexec"
+export ANT_HOME="/Users/natalie/bin/apache-ant-1.10.5"
+export PATH=$ANT_HOME/bin:$PATH
 export ANT_OPTS="-Xms64m -Xmx1500m"
 export GOROOT="/usr/local/go"
 export GOPATH="$HOME/go"
 export PATH=$GOPATH/bin:$JAVA_HOME/bin:$HOME/bin:$PATH
-export EDITOR='vim'
+export EDITOR='nvim'
 export SHELL='zsh'
+export DEFAULT_JVM_DEBUG_SUSPEND=n
 
 source $HOME/build/z/z.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -15,6 +15,7 @@ Plug 'pangloss/vim-javascript' " for javascript
 Plug 'tpope/vim-fugitive' " git support for vim
 Plug 'tpope/vim-surround' " allows you to easily edit surroundings
 Plug 'tpope/vim-repeat' " lets you repeat with . stuff that a plugin does
+Plug 'tpope/vim-rhubarb' " better git support
 Plug 'vim-airline/vim-airline' " status line
 Plug 'vim-airline/vim-airline-themes' " themes to make status line pretty
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}" displays a tree of the folders
@@ -40,7 +41,7 @@ set backspace=indent,eol,start
 syntax enable
 
 " If using a dark background within the editing area and syntax highlighting
-set background=dark
+set background=light
 
 " Have Vim jump to the last position when reopening a file
 if has("autocmd")
@@ -54,7 +55,7 @@ set smartcase          " Do smart case matching
 set incsearch          " Incremental search
 set autowrite          " Automatically save before commands like :next and :make
 set mouse=a            " Turns mouse on
-set number             " Turns on numbers
+set number relativenumber             " Turns on hybrid numbers
 set cindent            " Indenting stuff~
 set tabstop=2
 set expandtab
@@ -70,11 +71,11 @@ set clipboard=unnamed  " allows vim to access the system clipboard
 set fillchars+=vert:*  " make the middle line prettier in a vsplit
 
 " italic comments
-highlight Comment cterm=italic ctermfg=189
+highlight Comment cterm=italic ctermfg=grey
 
 " highlight cursorline (color chosen specifically to match my iterm theme so ymmv)
 set cursorline
-hi CursorLine cterm=NONE ctermbg=240 ctermfg=NONE
+hi CursorLine cterm=NONE ctermbg=7 ctermfg=NONE
 
 " *** PLUGIN SETTINGS ***
 " vim-markdown
@@ -212,7 +213,6 @@ nnoremap <leader>r viwy:%s/<c-r>"/
 nnoremap <leader>ra viwy:bufdo %s/<c-r>"/
 
 " *** PERSONAL PLUGIN MAPPINGS: ***
-
 " --- vim-go ---
 " shows GoDoc documentation
 au FileType go nmap <leader>gd <Plug>(go-doc)

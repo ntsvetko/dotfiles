@@ -20,7 +20,7 @@ I'm including some config files as well as general lists of things that I use he
   * this will generate a new .zshrc so I like to just edit the new .zshrc to have the correct theme (agnoster) and plugins.
 * tmux (2.1 or above)
 * [vim-plug](https://github.com/junegunn/vim-plug) (plugin manager for vim)
-* vim (at least 8)
+* [neovim](https://github.com/neovim/neovim) (vim, but better, kind of)
 * [powerline fonts](https://github.com/powerline/fonts) (for various prompts/statuslines – Meslo Powerline is nice)
 * [fzf](https://github.com/junegunn/fzf) (a fuzzy finder that makes it easier to search for files and through history)
 * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
