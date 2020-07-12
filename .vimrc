@@ -7,10 +7,10 @@ set rtp+=/usr/local/opt/fzf
 
 " *** VIM-PLUG STUFF ***
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " trying this out for autocomplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocomplete, etc <3
 Plug 'Yggdroot/indentLine' " makes indentations more visible with lines
 Plug 'godlygeek/tabular' " needed for vim-markdown
-Plug 'plasticboy/vim-markdown' " makes editing markdown nicer?
+Plug 'plasticboy/vim-markdown' " makes editing markdown nicer
 Plug 'pangloss/vim-javascript' " for javascript
 Plug 'tpope/vim-fugitive' " git support for vim
 Plug 'tpope/vim-surround' " allows you to easily edit surroundings
@@ -40,7 +40,7 @@ set backspace=indent,eol,start
 " syntax highlighting
 syntax enable
 
-" If using a dark background within the editing area and syntax highlighting
+" If using a light background within the editing area and syntax highlighting
 set background=light
 
 " Have Vim jump to the last position when reopening a file
@@ -68,14 +68,31 @@ set ignorecase         " ignores case while searching
 set laststatus=2       " makes status line always visible -- good for vim-airline
 set noshowmode         " hides default information under statusline
 set clipboard=unnamed  " allows vim to access the system clipboard
-set fillchars+=vert:*  " make the middle line prettier in a vsplit
+set fillchars+=vert:┊ " make the middle line prettier in a vsplit
+
+" *** HIGHLIGHT STUFF ***
+" the following is all mostly hard-coded in to match my theme (Solarized Light, currently)
 
 " italic comments
 highlight Comment cterm=italic ctermfg=grey
 
-" highlight cursorline (color chosen specifically to match my iterm theme so ymmv)
+" cursorline
 set cursorline
-hi CursorLine cterm=NONE ctermbg=7 ctermfg=NONE
+highlight CursorLine cterm=NONE ctermbg=7 ctermfg=NONE
+" change the color of the cursorline if you are in insert mode
+autocmd InsertEnter * highlight  CursorLine cterm=NONE ctermbg=223 ctermfg=NONE
+autocmd InsertLeave * highlight CursorLine cterm=NONE ctermbg=7 ctermfg=NONE
+
+highlight Search cterm=NONE ctermbg=222 ctermfg=NONE
+highlight LineNr cterm=italic ctermfg=103
+highlight VertSplit cterm=NONE ctermbg=223
+
+" making gitgutter pretty
+highlight clear SignColumn
+highlight GitGutterAdd ctermfg=106
+highlight GitGutterChange ctermfg=178
+highlight GitGutterDelete ctermfg=197
+highlight GitGutterChangeDelete ctermfg=178
 
 " *** PLUGIN SETTINGS ***
 " vim-markdown
@@ -160,6 +177,22 @@ augroup end
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
 	\| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+" respect terminal colors (I edited this a bit from the recommended defaults)
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'Statement', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Comment'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'EndOfBuffer'] }
 
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
