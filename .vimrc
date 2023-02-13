@@ -3,18 +3,19 @@
 set nocompatible  " this tells the thing I'm using vim and not vi
 filetype off " something I need to do for vundle
 set encoding=utf-8 " just in case some plugin didn't get the memo
-set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/opt/fzf
 
 " *** VIM-PLUG STUFF ***
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocomplete, etc <3
 Plug 'Yggdroot/indentLine' " makes indentations more visible with lines
 Plug 'godlygeek/tabular' " needed for vim-markdown
 Plug 'plasticboy/vim-markdown' " makes editing markdown nicer
 Plug 'pangloss/vim-javascript' " for javascript
 Plug 'tpope/vim-fugitive' " git support for vim
 Plug 'tpope/vim-surround' " allows you to easily edit surroundings
+Plug 'tpope/vim-commentary' " comments
 Plug 'tpope/vim-repeat' " lets you repeat with . stuff that a plugin does
+Plug 'terryma/vim-multiple-cursors' " multiple cursors
 Plug 'tpope/vim-rhubarb' " better git support
 Plug 'vim-airline/vim-airline' " status line
 Plug 'vim-airline/vim-airline-themes' " themes to make status line pretty
@@ -27,6 +28,7 @@ Plug 'junegunn/fzf.vim' " fuzzy finder
 Plug 'prettier/vim-prettier' " autoformatting for javascript
 Plug 'leafgarland/typescript-vim' "typescript
 Plug 'ianks/vim-tsx' "tsx
+Plug 'easymotion/vim-easymotion' "easymotion
 call plug#end()
 
 filetype plugin indent on
@@ -74,14 +76,15 @@ set fillchars+=vert:┊ " make the middle line prettier in a vsplit
 " the following is all mostly hard-coded in to match my theme (Solarized Light, currently)
 
 " italic comments
-highlight Comment cterm=italic ctermfg=grey
+highlight Comment cterm=italic ctermfg=grey ctermbg=NONE
 
 " cursorline
 set cursorline
-highlight CursorLine cterm=NONE ctermbg=7 ctermfg=NONE
+highlight CursorLine cterm=NONE ctermbg=60 ctermfg=NONE
+hi CursorLineNr term=bold cterm=bold ctermfg=012 gui=bold
 " change the color of the cursorline if you are in insert mode
 autocmd InsertEnter * highlight  CursorLine cterm=NONE ctermbg=223 ctermfg=NONE
-autocmd InsertLeave * highlight CursorLine cterm=NONE ctermbg=7 ctermfg=NONE
+autocmd InsertLeave * highlight CursorLine cterm=NONE ctermbg=60 ctermfg=NONE
 
 highlight Search cterm=NONE ctermbg=222 ctermfg=NONE
 highlight LineNr cterm=italic ctermfg=103
@@ -102,76 +105,6 @@ let g:vim_markdown_folding_disabled = 1
 let g:airline_theme='silver'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
-
-" coc.nvim
-set hidden
-set nobackup
-set nowritebackup
-set cmdheight=2
-set updatetime=300
-set signcolumn=yes
-
-"" Use tab for trigger completion with characters ahead and navigate.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-"" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-"" position. Coc only does snippet and additional edit on confirm.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-
-"" close preview window
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
-"" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-"" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
 
 " fzf
 autocmd! FileType fzf
