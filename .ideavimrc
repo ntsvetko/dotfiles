@@ -1,0 +1,96 @@
+" NATALIE'S VIMRC :D
+
+set nocompatible  " this tells the thing I'm using vim and not vi
+filetype off " something I need to do for vundle
+set encoding=utf-8 " just in case some plugin didn't get the memo
+
+" VARIOUS SETTINGS (mostly stolen from Brown's default .vimrc)
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" syntax highlighting
+syntax enable
+
+" If using a dark background within the editing area and syntax highlighting
+set background=dark
+
+" Have Vim jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal g'\"" | endif
+endif
+
+" PLUGINS
+Plug '<extension-github-reference>'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'easymotion/vim-easymotion'
+
+set surround
+set multiple-cursors
+set commentary
+set easymotion
+
+set showmatch          " Show matching brackets.
+set ignorecase         " Do case insensitive matching
+set smartcase          " Do smart case matching
+set incsearch          " Incremental search
+set autowrite          " Automatically save before commands like :next and :make
+set mouse=a            " Turns mouse on
+set number relativenumber             " Turns on hybrid numbers
+set cindent            " Indenting stuff~
+set tabstop=2
+set expandtab
+set shiftwidth=2
+set shortmess+=c
+set smartindent
+set splitbelow
+set splitright
+set ignorecase         " ignores case while searching
+set laststatus=2       " makes status line always visible -- good for vim-airline
+set noshowmode         " hides default information under statusline
+set clipboard=unnamed  " allowjs vim to access the system clipboard
+
+" PERSONAL MAPPING STUFF
+
+let mapleader = ','
+let maplocalleader = "\\"
+
+" maps - to move a line up
+nnoremap - ddp
+" maps _ to move a line down
+nnoremap _ dd2kp
+" selects a word in visual mode with a space in normal mode
+nnoremap <leader><space> viw
+" uppercases the current word with C-u in normal mode
+nnoremap <leader><C-u> viwU
+" sets jk as escape for easier toggling between insert and normal mode
+inoremap jk <Esc>
+" uncomments a line starting with // (kind of a shitty hardcoded shortcut)
+nnoremap <leader>uc ^d3l 
+" paste from clipboard
+nnoremap <leader>v :set paste<Cr>o<esc>"*]p:set nopaste<cr>
+" yanks whole file
+nnoremap <leader>ca ggYG
+" moves to next tab
+nnoremap <leader>n gt<cr>
+" moves to previous tab
+nnoremap <leader>p gT<cr>
+" exits current buffer
+nnoremap <c-x> :bd<cr>
+" starts out a search and replace with the word under the cursor
+nnoremap <leader><leader>r viwy:%s/<c-r>"/
+
+xnoremap P "_dP
+
+# IntelliJ Specific
+map <leader>gh <Action>(Github.Open.In.Browser)
+map <leader>b <Action>(ToggleLineBreakpoint)
+map == <Action>(ReformatCode)
+map <leader>sp <Action>(FileStructurePopup)
+map <leader>e <Action>(GotoNextError)
+map <leader>gb <Action>(Annotate)
+map <leader>rn <Action>(RenameElement)
+map <leader>nc <Action>(NewClass)
