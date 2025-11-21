@@ -19,7 +19,7 @@ Plug 'terryma/vim-multiple-cursors' " multiple cursors
 Plug 'tpope/vim-rhubarb' " better git support
 Plug 'vim-airline/vim-airline' " status line
 Plug 'vim-airline/vim-airline-themes' " themes to make status line pretty
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}" displays a tree of the folders
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} "displays a tree of the folders
 Plug 'airblade/vim-gitgutter' " shows +/-/~ according to git
 Plug 'edkolev/tmuxline.vim' " uses vim-airline theme to make tmux match
 Plug 'fatih/vim-go' " plugin for golang
@@ -188,6 +188,9 @@ au FileType go nmap <leader>gc <Plug>(go-callers)
 au FileType go nmap <leader>go :GoDecls<cr>
 " lists declarations in directory (requires fzf or ctrlp)
 au FileType go nmap <leader>gf :GoDeclsDir<cr>
+
+" --- fugitive ---
+nnoremap <leader>gb :Git blame<cr>
 
 " fzf
 nnoremap <leader>b :Buffers<cr>

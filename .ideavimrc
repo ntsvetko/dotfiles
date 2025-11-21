@@ -39,7 +39,8 @@ set smartcase          " Do smart case matching
 set incsearch          " Incremental search
 set autowrite          " Automatically save before commands like :next and :make
 set mouse=a            " Turns mouse on
-set number relativenumber             " Turns on hybrid numbers
+set number             " Turns on hybrid numbers
+set relativenumber
 set cindent            " Indenting stuff~
 set tabstop=2
 set expandtab
@@ -82,15 +83,29 @@ nnoremap <leader>p gT<cr>
 nnoremap <c-x> :bd<cr>
 " starts out a search and replace with the word under the cursor
 nnoremap <leader><leader>r viwy:%s/<c-r>"/
+" adds a semicolon to the end of a line
+nnoremap <leader>sc A;<Esc>
+" saves
+nnoremap <leader>s <Esc>:w<cr>
 
 xnoremap P "_dP
 
 # IntelliJ Specific
-map <leader>gh <Action>(Github.Open.In.Browser)
+map <leader>ogh <Action>(Github.Open.In.Browser)
+map <leader>gh <Action>(GitHub.Copy.Link)
+map <leader>cr <Action>(CopyReference)
 map <leader>b <Action>(ToggleLineBreakpoint)
 map == <Action>(ReformatCode)
 map <leader>sp <Action>(FileStructurePopup)
 map <leader>e <Action>(GotoNextError)
 map <leader>gb <Action>(Annotate)
 map <leader>rn <Action>(RenameElement)
+map <leader>rf <Action>(ChangeSignature)
 map <leader>nc <Action>(NewClass)
+map <leader>nw <Action>(EditSourceInNewWindow)
+map <leader>ep <Action>(ActivateEndpointsToolWindow)
+map <leader>db <Action>(Debug)
+map <leader>tm <Action>(Terminal.NewTab)
+map <leader>td <Action>(ActivateTODOToolWindow)
+map <leader>sd <Action>(SafeDelete)
+map <leader>ag <Action>(ActivateAugmentToolWindow)
