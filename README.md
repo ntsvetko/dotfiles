@@ -17,7 +17,7 @@ I'm including some config files as well as general lists of things that I use he
 * [homebrew](https://brew.sh/) (package manager)
   * reattach-to-user-namespace (fixes some issues between tmux and Mac, ex. copy/paste)
   * coreutils (ls colors & other things)
-* [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) (color schemes for iTerm2, currently using Tomorrow Night Eighties)
+
 ### All OS:
 * tmux 
 * [vim-plug](https://github.com/junegunn/vim-plug) (plugin manager for vim)
@@ -28,6 +28,3 @@ I'm including some config files as well as general lists of things that I use he
 ## Other Setting Stuff
 * Remap Caps Lock to Control
 * Make sure that iTerm2 allows applications to access the clipboard
-
-## Example Image
-![alt text](https://user-images.githubusercontent.com/12420326/49762791-cbd89f00-fc98-11e8-964d-760ced039cb3.png)
